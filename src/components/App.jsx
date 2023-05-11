@@ -2,7 +2,7 @@ import "../style.css"
 import Jogo from "./Jogo";
 import Letras from "./Letras";
 import "./reset.css"
-import palavras from "../palavras,js";
+import palavras from "../palavras.js";
 import { useState } from "react";
 
 function App() {
