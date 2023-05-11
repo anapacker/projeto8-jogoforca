@@ -2,11 +2,16 @@ import palavras from "../palavras.js"
 
 export default function Jogo(props) {
     const setIsDesabilitado = props.setIsDesabilitado
-    
+    const setPalavraSorteada = props.setPalavraSorteada
+    const palavraSorteada = props.palavraSorteada
+    const arrayDeCaracteres = palavraSorteada.split("")
+
+
     function handleClick(){
         habilitarLetras()
-        sortearPalavras(palavras)
-        console.log(sortearPalavras(palavras))
+        const palavraSorteada = sortearPalavra(palavras)
+        setPalavraSorteada(palavraSorteada)
+        console.log(palavraSorteada)
 
     }
     
@@ -15,7 +20,7 @@ export default function Jogo(props) {
 
     }
 
-    function sortearPalavras(palavras){
+    function sortearPalavra(palavras){
         const indiceAleatorio = Math.floor(Math.random() * palavras.length)
         return palavras[indiceAleatorio]
     }
@@ -25,9 +30,9 @@ export default function Jogo(props) {
             <div className="boxButton">
                 <button onClick={handleClick}>Escolher palvra</button>
                 <div className="palavra">
-                    <span>_ </span>
-                    <span>_ </span>
-                    <span>_ </span>
+                    {arrayDeCaracteres.map(caracter => 
+                        <span>_ </span>)}
+  
                 </div>
             </div>
 
