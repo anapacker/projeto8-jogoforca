@@ -11,10 +11,12 @@ export default function Letras(props) {
     const qtdErros = props.qtdErros
     const setJogoPerdido = props.setJogoPerdido
     const jogoPerdido = props.jogoPerdido
+    const jogoGanho = props.jogoGanho
+    const setJogoGanho = props.setJogoGanho
     
     return (
         <div className="letras">
-           {alfabeto.map(letra => <Letra key={letra} letrasSelecionadas={letrasSelecionadas} setLetrasSelecionadas={setLetrasSelecionadas} isDesabilitado={isDesabilitado } letra={letra} palavraSorteada={palavraSorteada} qtdErros={qtdErros} setQtdErros={setQtdErros} jogoPerdido={jogoPerdido} setJogoPerdido={setJogoPerdido} />)}
+           {alfabeto.map(letra => <Letra key={letra} letrasSelecionadas={letrasSelecionadas} setLetrasSelecionadas={setLetrasSelecionadas} isDesabilitado={isDesabilitado } letra={letra} palavraSorteada={palavraSorteada} qtdErros={qtdErros} setQtdErros={setQtdErros} jogoPerdido={jogoPerdido} setJogoPerdido={setJogoPerdido} jogoGanho={jogoGanho} setJogoGanho={setJogoGanho} />)}
         </div>
     )
 }

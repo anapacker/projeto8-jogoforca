@@ -7,8 +7,9 @@ export default function Jogo(props) {
     const palavraSorteada = props.palavraSorteada
     const letrasSelecionadas = props.letrasSelecionadas
     const qtdErros = props.qtdErros
-    const setJogoPerdido = props.setJogoPerdido
     const jogoPerdido = props.jogoPerdido
+    const jogoGanho = props.jogoGanho
+    const setJogoGanho = props.setJogoGanho
 
     const arrayDeCaracteres = palavraSorteada.split("")
 
@@ -49,6 +50,8 @@ export default function Jogo(props) {
                     {arrayDeCaracteres.map(caracter => {
                         if(jogoPerdido)
                             return <span className="vermelho">{caracter}</span>
+                        else if(jogoGanho)
+                            return <span className="verde">{caracter}</span>
                         else
                             return <LetraDaForca caracter={caracter} letrasSelecionadas={letrasSelecionadas}/>
                     })}

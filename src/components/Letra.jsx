@@ -10,6 +10,8 @@ export default function Letra(props){
     const qtdErros = props.qtdErros
     const jogoPerdido = props.jogoPerdido
     const setJogoPerdido = props.setJogoPerdido
+    const jogoGanho = props.jogoGanho
+    const setJogoGanho = props.setJogoGanho
 
     const arrayDeCaracteres = palavraSorteada.split("")
 
@@ -19,6 +21,7 @@ export default function Letra(props){
         setLetrasSelecionadas([...letrasSelecionadas, letra])
         setIsLetraClicada(true)
         verificarSeExisteLetra()
+        verificarSeGanhou()
     }
     function verificarSeExisteLetra(){
         let existeLetra = arrayDeCaracteres.some(function(caracter) {
@@ -36,8 +39,26 @@ export default function Letra(props){
             setJogoPerdido(true)
         }
     }
+    function verificarSeGanhou(){
+        let achouOCaracter = false
+        const letrasSelecionadasAtualizado = [...letrasSelecionadas, letra]
+
+        for(let i = 0;i<arrayDeCaracteres.length; i++){
+            achouOCaracter = false
+            for(let j=0;j<letrasSelecionadasAtualizado.length;j++){
+                if(letrasSelecionadasAtualizado[j] == arrayDeCaracteres[i]){
+                    achouOCaracter = true
+                }
+            }
+            if(!achouOCaracter){
+                return 
+            }
+        }
+        setJogoGanho(true)
+        console.log("ganhou o jogo")
+    }
 
     return(
-        <button onClick={escolherLetra} disabled={isLetraClicada || isDesabilitado || jogoPerdido}>{letra}</button>
+        <button onClick={escolherLetra} disabled={isLetraClicada || isDesabilitado || jogoPerdido || jogoGanho}>{letra}</button>
     )
 }
