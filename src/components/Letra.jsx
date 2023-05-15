@@ -8,6 +8,8 @@ export default function Letra(props){
     const palavraSorteada = props.palavraSorteada
     const setQtdErros = props.setQtdErros
     const qtdErros = props.qtdErros
+    const jogoPerdido = props.jogoPerdido
+    const setJogoPerdido = props.setJogoPerdido
 
     const arrayDeCaracteres = palavraSorteada.split("")
 
@@ -26,10 +28,16 @@ export default function Letra(props){
         })
         if(existeLetra == false){
             setQtdErros(qtdErros +1)
+            verificarSePerdeuOJogo()
+        }
+    }
+    function verificarSePerdeuOJogo(){
+        if(qtdErros == 5){
+            setJogoPerdido(true)
         }
     }
 
     return(
-        <button onClick={escolherLetra} disabled={isLetraClicada || isDesabilitado}>{letra}</button>
+        <button onClick={escolherLetra} disabled={isLetraClicada || isDesabilitado || jogoPerdido}>{letra}</button>
     )
 }
