@@ -6,8 +6,18 @@ export default function Jogo(props) {
     const setPalavraSorteada = props.setPalavraSorteada
     const palavraSorteada = props.palavraSorteada
     const letrasSelecionadas = props.letrasSelecionadas
+    const qtdErros = props.qtdErros
     const arrayDeCaracteres = palavraSorteada.split("")
 
+    const imagensForca = [
+        "./assets/forca0.png", 
+        "./assets/forca1.png", 
+        "./assets/forca2.png", 
+        "./assets/forca3.png", 
+        "./assets/forca4.png",
+        "./assets/forca5.png",
+        "./assets/forca6.png"
+    ]
 
     function handleClick(){
         habilitarLetras()
@@ -27,10 +37,9 @@ export default function Jogo(props) {
         return palavras[indiceAleatorio]
     }
 
-
     return (
         <>
-            <img src="./assets/forca0.png" alt="forca" />
+            <img src={imagensForca[qtdErros]} alt="forca" />
             <div className="boxButton">
                 <button onClick={handleClick}>Escolher palvra</button>
                 <div className="palavra">

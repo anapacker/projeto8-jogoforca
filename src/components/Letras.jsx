@@ -6,10 +6,13 @@ export default function Letras(props) {
     const isDesabilitado = props.isDesabilitado
     const letrasSelecionadas = props.letrasSelecionadas
     const setLetrasSelecionadas = props.setLetrasSelecionadas
+    const palavraSorteada = props.palavraSorteada
+    const setQtdErros = props.setQtdErros
+    const qtdErros = props.qtdErros
     
     return (
         <div className="letras">
-           {alfabeto.map(letra => <Letra key={letra} letrasSelecionadas={letrasSelecionadas} setLetrasSelecionadas={setLetrasSelecionadas} isDesabilitado={isDesabilitado } letra={letra}/>)}
+           {alfabeto.map(letra => <Letra key={letra} letrasSelecionadas={letrasSelecionadas} setLetrasSelecionadas={setLetrasSelecionadas} isDesabilitado={isDesabilitado } letra={letra} palavraSorteada={palavraSorteada} qtdErros={qtdErros} setQtdErros={setQtdErros}/>)}
         </div>
     )
 }
