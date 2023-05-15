@@ -15,6 +15,6 @@ export default function Letra(props){
 
 
     return(
-        <button onClick={escolherLetra} disabled={isLetraClicada ||isDesabilitado}>{letra}</button>
+        <button onClick={escolherLetra} disabled={isLetraClicada || isDesabilitado}>{letra}</button>
     )
 }
