@@ -15,11 +15,10 @@ export default function Letra(props){
 
     const arrayDeCaracteres = palavraSorteada.split("")
 
-    const [isLetraClicada, setIsLetraClicada] = useState(false)
+    const isLetraClicada = verificaSeLetraJaFoiClicada()
 
     function escolherLetra(){
         setLetrasSelecionadas([...letrasSelecionadas, letra])
-        setIsLetraClicada(true)
         verificarSeExisteLetra()
         verificarSeGanhou()
     }
@@ -57,8 +56,15 @@ export default function Letra(props){
         setJogoGanho(true)
         console.log("ganhou o jogo")
     }
+    function verificaSeLetraJaFoiClicada(){
+        for(let i = 0; i<letrasSelecionadas.length; i++){
+            if(letrasSelecionadas[i] == letra)
+                return true
+        }
+        return false
+    }
 
     return(
-        <button onClick={escolherLetra} disabled={isLetraClicada || isDesabilitado || jogoPerdido || jogoGanho}>{letra}</button>
+        <button data-test="letter" onClick={escolherLetra} disabled={isLetraClicada || isDesabilitado || jogoPerdido || jogoGanho}>{letra}</button>
     )
 }

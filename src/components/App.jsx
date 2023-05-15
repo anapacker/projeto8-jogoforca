@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <div className='containerCima'>
-        <Jogo setIsDesabilitado={setIsDesabilitado} palavraSorteada={palavraSorteada} setPalavraSorteada={setPalavraSorteada} letrasSelecionadas={letrasSelecionadas} qtdErros={qtdErros} jogoPerdido={jogoPerdido} setJogoPerdido={setJogoPerdido} jogoGanho={jogoGanho} setJogoGanho={setJogoGanho}/>
+        <Jogo setIsDesabilitado={setIsDesabilitado} palavraSorteada={palavraSorteada} setPalavraSorteada={setPalavraSorteada} letrasSelecionadas={letrasSelecionadas} setLetrasSelecionadas={setLetrasSelecionadas} qtdErros={qtdErros} setQtdErros={setQtdErros} jogoPerdido={jogoPerdido} setJogoPerdido={setJogoPerdido} jogoGanho={jogoGanho} setJogoGanho={setJogoGanho}/>
       </div>
 
       <div className="containerLetras">

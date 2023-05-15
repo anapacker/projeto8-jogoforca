@@ -6,10 +6,13 @@ export default function Jogo(props) {
     const setPalavraSorteada = props.setPalavraSorteada
     const palavraSorteada = props.palavraSorteada
     const letrasSelecionadas = props.letrasSelecionadas
+    const setLetrasSelecionadas = props.setLetrasSelecionadas
     const qtdErros = props.qtdErros
+    const setQtdErros = props.setQtdErros
     const jogoPerdido = props.jogoPerdido
     const jogoGanho = props.jogoGanho
     const setJogoGanho = props.setJogoGanho
+    const setJogoPerdido = props.setJogoPerdido
 
     const arrayDeCaracteres = palavraSorteada.split("")
 
@@ -24,6 +27,13 @@ export default function Jogo(props) {
     ]
 
     function handleClick(){
+        if(jogoPerdido || jogoGanho){
+            setQtdErros(0)
+            setJogoGanho(false)
+            setJogoPerdido(false)
+            setLetrasSelecionadas([])
+                      
+        }
         habilitarLetras()
         const palavraSorteada = sortearPalavra(palavras)
         setPalavraSorteada(palavraSorteada)
@@ -43,10 +53,10 @@ export default function Jogo(props) {
 
     return (
         <>
-            <img src={imagensForca[qtdErros]} alt="forca" />
+            <img data-test="game-image" src={imagensForca[qtdErros]} alt="forca" />
             <div className="boxButton">
-                <button onClick={handleClick}>Escolher palvra</button>
-                <div className="palavra">
+                <button data-test="choose-word" onClick={handleClick}>Escolher palvra</button>
+                <div data-test="word" className="palavra">
                     {arrayDeCaracteres.map(caracter => {
                         if(jogoPerdido)
                             return <span className="vermelho">{caracter}</span>
